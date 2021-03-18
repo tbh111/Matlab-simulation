@@ -146,14 +146,13 @@ drawnow
 quiver3(handles.axes1,x,zero,zero,zero,zero,e,'R');
 hold on
 quiver3(handles.axes1,x,zero,zero,zero,h,zero,'B');
-ti=title(' ÁîµÁ£ÅÊ≥¢Âú®ÁêÜÊÉ≥‰ªãË¥®‰∏≠‰º†Êí≠','color','k');
+ti=title(' µÁ¥≈≤®‘⁄¿ÌœÎΩÈ÷ ÷–¥´≤•','color','k');
 set(ti,'fontsize',16);
-xlabel(' ÁîµÁ£ÅÊ≥¢‰º†Êí≠ÊñπÂêë','fontSize',12);
-ylabel(' Á£ÅÂú∫ÂèòÂåñÊñπÂêë','fontSize',12);
-zlabel(' ÁîµÂú∫ÂèòÂåñÊñπÂêë','fontSize',12);
+xlabel(' µÁ¥≈≤®¥´≤•∑ΩœÚ','fontSize',12);
+ylabel(' ¥≈≥°±‰ªØ∑ΩœÚ','fontSize',12);
+zlabel(' µÁ≥°±‰ªØ∑ΩœÚ','fontSize',12);
 axis([0,10*get(handles.slider,'Value'),-0.1,0.1,-0.1,0.1]);
 hold off
-
 
 % --- Executes during object deletion, before destroying properties.
 function figure1_DeleteFcn(hObject, eventdata, handles)
@@ -161,109 +160,6 @@ function figure1_DeleteFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 delete(timerfind);
-
-
-% --- Executes during object creation, after setting all properties.
-function slider_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function E0_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to E0 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function theta0_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to theta0 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function w_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to w (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function dtheta_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to dtheta (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function nc_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to nc (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-% --- Executes during object creation, after setting all properties.
-function alpha_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to alpha (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes during object creation, after setting all properties.
-function k_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to k (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
 
 % --- Executes on button press in stoppushbutton.
 function stoppushbutton_Callback(hObject, eventdata, handles)
