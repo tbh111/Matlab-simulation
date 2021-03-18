@@ -22,7 +22,7 @@ function varargout = ex1(varargin)
 
 % Edit the above text to modify the response to help ex1
 
-% Last Modified by GUIDE v2.5 17-Mar-2021 13:08:48
+% Last Modified by GUIDE v2.5 18-Mar-2021 18:52:50
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -137,8 +137,8 @@ else
         e=E0*exp(-alpha*x).*cos(w*t1*10^-10-k*x+theta0);
         h=E0/n*exp(-alpha*x).*cos(w*t1*10^-10-k*x+theta0-dtheta);
     else
-        e=E0*exp(alpha*x).*cos(w*-t1*10^-10-k*x+theta0);
-        h=E0/n*exp(alpha*x).*cos(w*-t1*10^-10-k*x+theta0-dtheta);
+        e=E0*exp(-alpha*-x).*cos(w*t1*10^-10-k*-x+theta0);
+        h=E0/n*exp(-alpha*-x).*cos(w*t1*10^-10-k*-x+theta0-dtheta);
     end
 end
 
