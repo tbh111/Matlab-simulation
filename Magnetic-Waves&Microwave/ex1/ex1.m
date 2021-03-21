@@ -144,14 +144,17 @@ end
 
 drawnow
 quiver3(handles.axes1,x,zero,zero,zero,zero,e,'R');
+% quiver3(handles.axes1,zero,zero,x,e,zero,zero,'R');
 hold on
 quiver3(handles.axes1,x,zero,zero,zero,h,zero,'B');
+% quiver3(handles.axes1,zero,zero,x,zero,h,zero,'B');
 ti=title(' 电磁波在理想介质中传播','color','k');
 set(ti,'fontsize',16);
 xlabel(' 电磁波传播方向','fontSize',12);
 ylabel(' 磁场变化方向','fontSize',12);
 zlabel(' 电场变化方向','fontSize',12);
 axis([0,10*get(handles.slider,'Value'),-0.1,0.1,-0.1,0.1]);
+% axis([-0.1,0.1,-0.1,0.1,0,10*get(handles.slider,'Value')]);
 hold off
 
 % --- Executes during object deletion, before destroying properties.
