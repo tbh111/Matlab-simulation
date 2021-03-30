@@ -1,12 +1,12 @@
-%çœŸç©ºå‚ç›´å…¥å°„å¯¼ä½“ï¼Œåˆæˆæ³¢E1ï¼ŒH1
-%é™æ€
+%Õæ¿Õ´¹Ö±ÈëÉäµ¼Ìå£¬ºÏ³É²¨E1£¬H1
+%¾²Ì¬
 % aleko 2020.05.18
-%% æ¸…ç©º
+%% Çå¿Õ
 clc
 clear
 close all
 % clf
-%% åˆå§‹åŒ–
+%% ³õÊ¼»¯
 u0 = 4*pi*10.^(-7);
 e0 = 1/(36*pi)*10^(-9);
 u1 = u0;
@@ -15,61 +15,61 @@ omiga = 2*pi*10^(3);
 k1 = omiga *sqrt(u1*e1);
 eta1 = sqrt(u1/e1);
 Ei0 = 1;
-%% æç»˜
-%% å¤šæ¬¡
+%% Ãè»æ
+%% ¶à´Î
 n=2;
 figure,hold on
 lambda1 = 2*pi/k1;
 z = -n*lambda1:lambda1/100:0;
-%ç”µåœº  å¤šæ¬¡ é©»æ³¢
+%µç³¡  ¶à´Î ×¤²¨
 for t = 0:0.00001:0.001
     E1 = 2*Ei0* sin(k1*z).*sin(omiga*t);
     plot(z,E1);
     axis([ -n*lambda1,0,-inf,inf])
-    title('ç”µåœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢,å¤šæ¬¡')
+    title('µç³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ,¶à´Î')
 end
-%ç£åœº å¤šæ¬¡ é©»æ³¢
+%´Å³¡ ¶à´Î ×¤²¨
 figure,hold on
 for t = 0:0.00001:0.001
     H1 = 2*Ei0/eta1* cos(k1*z).*cos(omiga*t);
     plot(z,H1);
     axis([ -n*lambda1,0,-inf,inf])
-    title('ç£åœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢,å¤šæ¬¡')
+    title('´Å³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ,¶à´Î')
 end
-%% å•æ¬¡
-%ç”µç£åœº å•æ¬¡ åˆå¹¶
+%% µ¥´Î
+%µç´Å³¡ µ¥´Î ºÏ²¢
 n=2;
 figure,hold on
 lambda1 = 2*pi/k1;
 z = -n*lambda1:lambda1/100:0;
-%ç”µåœº  å•æ¬¡
+%µç³¡  µ¥´Î
 t=0.1;
 E1 = 2*Ei0* sin(k1*z).*sin(omiga*t);
 plot(z,E1);
 axis([ -n*lambda1,0,-inf,inf])
-title('ç”µåœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢ t=0.1s')
-%ç£åœº å•æ¬¡
+title('µç³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ t=0.1s')
+%´Å³¡ µ¥´Î
 figure,hold on
 
 H1 = 2*Ei0/eta1* cos(k1*z).*cos(omiga*t);
 plot(z,H1);
 axis([ -n*lambda1,0,-inf,inf])
-title('ç£åœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢ t=0.1s')
+title('´Å³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ t=0.1s')
 
-%% å•æ¬¡ åˆå¹¶ä¸€å¼ 3ç»´å›¾
+%% µ¥´Î ºÏ²¢Ò»ÕÅ3Î¬Í¼
 zero=0*ones(size(z));
 figure
-%% æç»˜
+%% Ãè»æ
 
-%ç”µåœº
+%µç³¡
 quiver3(z,zero,zero,zero,zero,E1,'R');
 hold on;
-%ç£åœº
+%´Å³¡
 quiver3(z,zero,zero,zero,H1,zero,'B');
-ti=title(' ç”µç£æ³¢å‚ç›´å…¥å°„ç†æƒ³å¯¼ä½“','color','k');
+ti=title(' µç´Å²¨´¹Ö±ÈëÉäÀíÏëµ¼Ìå','color','k');
 set(ti,'fontsize',16);
-xlabel(' ç”µç£æ³¢ä¼ æ’­æ–¹å‘','fontSize',12);
-ylabel(' ç£åœºå˜åŒ–æ–¹å‘','fontSize',12);
-zlabel(' ç”µåœºå˜åŒ–æ–¹å‘','fontSize',12);
+xlabel(' µç´Å²¨´«²¥·½Ïò','fontSize',12);
+ylabel(' ´Å³¡±ä»¯·½Ïò','fontSize',12);
+zlabel(' µç³¡±ä»¯·½Ïò','fontSize',12);
 
 hold off;
