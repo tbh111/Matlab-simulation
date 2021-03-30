@@ -2,13 +2,13 @@ function timer_med()
     global t
     t = t+1;
 
-% åˆå§‹åŒ–
+% ³õÊ¼»¯
     u0 = 4*pi*10.^(-7);
     e0 = 1/(36*pi)*10^(-9);
     u1 = u0;
     u2 = u0;
     e1 = e0*2;
-    e2 = e0*4;
+    e2 = e0*20;
     omiga = 2*pi*10^(3);
     k1 = omiga*sqrt(u1*e1);
     k2 = omiga*sqrt(u2*e2);
@@ -19,10 +19,10 @@ function timer_med()
     t1 = t*0.5/omiga;
     R=(eta2-eta1)/(eta2+eta1);
     T=(2*eta2)/(eta2+eta1);
-%% æç»˜
+%% Ãè»æ
     lambda1 = 2*pi/k1;
-    z0 = -n*lambda1:lambda1/100:0;
-    z1 = lambda1/100:lambda1/100:n*lambda1+lambda1/100;
+    z0 = -n*lambda1:lambda1/1000:0;
+    z1 = lambda1/1000:lambda1/1000:n*lambda1+lambda1/1000;
     z = [z0 z1];
     zero = 0*ones(size(z));
     t1 = t1*ones(size(z0));
@@ -41,18 +41,18 @@ function timer_med()
     figure(1)
     plot(z,E);
     axis([-n*lambda1,n*lambda1,-2*Ei0,2*Ei0])
-    title('ç”µåœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢,å¤šæ¬¡')
+    title('µç³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ,¶à´Î')
     
     figure(2)
     plot(z,H);
     axis([-n*lambda1,n*lambda1,-2*Ei0/eta1,2*Ei0/eta1])
-    title('ç£åœºåœ¨å¯¼ä½“å¤–ä¾§çš„æ³¢å½¢,å¤šæ¬¡')
-    %ç”µåœº
+    title('´Å³¡ÔÚµ¼ÌåÍâ²àµÄ²¨ĞÎ,¶à´Î')
+    %µç³¡
     figure(3)
     q1 = quiver3(z,zero,zero,zero,zero,E,'-R');
     set(q1,'ShowArrowHead','off');
     hold on;
-    %ç£åœº
+    %´Å³¡
     q2 = quiver3(z,zero,zero,zero,H,zero,'-B');
 
     set(q2,'ShowArrowHead','off');

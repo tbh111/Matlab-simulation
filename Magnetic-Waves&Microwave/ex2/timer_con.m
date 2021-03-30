@@ -14,7 +14,7 @@ function timer_con()
     t1 = t*0.5/omiga;
 %% √ËªÊ
     lambda1 = 2*pi/k1;
-    z = -n*lambda1:lambda1/100:0;
+    z = -n*lambda1:lambda1/1000:0;
     zero = 0*ones(size(z));
     E1 = 2*Ei0*sin(k1*z).*sin(omiga*t1);
     disp(E1(1))
