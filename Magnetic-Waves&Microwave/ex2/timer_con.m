@@ -12,7 +12,7 @@ function timer_con()
     Ei0 = 1;
     n=2;
     t1 = t*0.5/omiga;
-%% 描绘
+% 描绘
     lambda1 = 2*pi/k1;
     z = -n*lambda1:lambda1/1000:0;
     zero = 0*ones(size(z));
@@ -22,12 +22,12 @@ function timer_con()
     figure(1)
     plot(z,E1);
     axis([-n*lambda1,0,-2*Ei0,2*Ei0])
-    title('电场在导体外侧的波形,多次')
+    title('电场在导体外侧的波形,单次')
     
     figure(2)
     plot(z,H1);
     axis([-n*lambda1,0,-2*Ei0/eta1,2*Ei0/eta1])
-    title('磁场在导体外侧的波形,多次')
+    title('磁场在导体外侧的波形,单次')
     %电场
     figure(3)
     q1 = quiver3(z,zero,zero,zero,zero,E1,'-R');

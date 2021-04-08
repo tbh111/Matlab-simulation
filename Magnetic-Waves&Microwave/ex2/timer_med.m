@@ -41,12 +41,12 @@ function timer_med()
     figure(1)
     plot(z,E);
     axis([-n*lambda1,n*lambda1,-2*Ei0,2*Ei0])
-    title('电场在导体外侧的波形,多次')
+    title('电场在介质两侧的波形,单次')
     
     figure(2)
     plot(z,H);
     axis([-n*lambda1,n*lambda1,-2*Ei0/eta1,2*Ei0/eta1])
-    title('磁场在导体外侧的波形,多次')
+    title('磁场在介质两侧的波形,单次')
     %电场
     figure(3)
     q1 = quiver3(z,zero,zero,zero,zero,E,'-R');
