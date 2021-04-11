@@ -6,7 +6,7 @@ carrier = imread('Parrot_Color.bmp');
 carrier_gray = rgb2gray(carrier);
 [rows1,cols1,dims1] = size(carrier);
 
-info = imread('test1.bmp');
+info = imread('dlut.bmp');
 [rows2,cols2,dims2] = size(info);
 if(dims2 == 3)
     info_gray = rgb2gray(info);
@@ -22,20 +22,20 @@ end
 
 info_gray = im2double(info_gray);
 info_bin = imbinarize(info_gray);
+[a,b] = DES_enc(info_bin);
 
 LSB_encode = carrier_gray;
 for i=1:rows2
     for j=1:cols2
-        if info_bin(i,j) == bitget(carrier_gray(i,j),1)
+        if a(i,j) == bitget(carrier_gray(i,j),1)
             continue
-        elseif info_bin(i,j) == 0 && bitget(carrier_gray(i,j),1) == 1
+        elseif a(i,j) == 0 && bitget(carrier_gray(i,j),1) == 1
             LSB_encode(i,j) = carrier_gray(i,j) - 1;
-        elseif info_bin(i,j) == 1 && bitget(carrier_gray(i,j),1) == 0
+        elseif a(i,j) == 1 && bitget(carrier_gray(i,j),1) == 0
             LSB_encode(i,j) = carrier_gray(i,j) + 1;
         end
     end
 end
-
 LSB_decode = zeros(rows2,cols2);
 for i=1:rows2
     for j=1:cols2
