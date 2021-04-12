@@ -1,4 +1,5 @@
 function [ciphertext,key] = DES_enc(src)
+% DES加密，具体算法实现代码来源于matlab社区：https://www.mathworks.com/matlabcentral/fileexchange/53768-des-str-key-mode
 [w,h,d] = size(src);
 src = src(:)';
 ciphertext = zeros(1,64*ceil(w*h*d/64));

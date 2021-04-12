@@ -1,5 +1,5 @@
 function [result] = LSB_decode(src)
-
+% 恢复LSB隐藏图片信息
 [rows1,cols1,dim] = size(src);
 if dim == 1
     result = zeros(rows1,cols1);

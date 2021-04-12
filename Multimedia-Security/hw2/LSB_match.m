@@ -165,18 +165,19 @@ function decode_pushbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to decode_pushbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% LSB 提取
 global d2 flag
 
-if d2 == 3
+if d2 == 3 % 若图像通道数为3，提取R通道信息
     im1 = LSB_decode(handles.decimg(:,:,1));
     axes(handles.axes5)
     imshow(im1);
-    if flag == 1
+    if flag == 1 % 有密钥输入
         set(handles.axes6,'Visible','On')
         set(handles.decode_txt,'Visible','On')
         load(handles.pwd,'DES_key');
         im2 = DES_dec(im1,DES_key);
-    else
+    else % 无密钥输入
         set(handles.axes6,'Visible','Off')
         set(handles.decode_txt,'Visible','Off')
         set(handles.axes6,'Visible','Off')
@@ -219,19 +220,20 @@ function encode_pushbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to encode_pushbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% LSB匹配
 global d1 d
 if d1 == 3
     temp = rgb2gray(handles.infoimg);
 end
 guidata(hObject, handles);
-if get(handles.radiobutton_none,'Value') == 1
-    if d == 3
+if get(handles.radiobutton_none,'Value') == 1 % 不加密
+    if d == 3 % 若图像通道数为3，取R通道
         [LSB_result,~] = LSB_encode(handles.srcimg(:,:,1),temp,0);
         LSB_result = cat(3,LSB_result,handles.srcimg(:,:,2),handles.srcimg(:,:,3));
     else
         [LSB_result,~] = LSB_encode(handles.srcimg,temp,0);
     end
-else
+else % 加密
     if d == 3
         [LSB_result,~] = LSB_encode(handles.srcimg(:,:,1),temp,1);
         LSB_result = cat(3,LSB_result,handles.srcimg(:,:,2),handles.srcimg(:,:,3));

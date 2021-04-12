@@ -24,9 +24,9 @@ end
 if mode == 0
     disp('processing')
     info = im2double(info);
-    info_bin = imbinarize(info);
+    info_bin = imbinarize(info); % 将图片二值化
     DES_key = [];
-    LSB_result = carrier;
+    LSB_result = carrier; % LSB匹配
     for i=1:rows1
         for j=1:cols1
             if info_bin(i,j) == bitget(carrier(i,j),1)
@@ -42,13 +42,13 @@ if mode == 0
 else
     disp('processing')
     info = im2double(info);
-    info_bin = imbinarize(info);
+    info_bin = imbinarize(info); % 将图片二值化
     DES_text = reshape(info_bin,1,[]);
     [DES_result,DES_key] = DES_enc(DES_text);
     DES_result = reshape(DES_result,cols1,[]);
     
     LSB_result = carrier;
-    for i=1:rows1
+    for i=1:rows1 % LSB匹配
         for j=1:cols1
             if DES_result(i,j) == bitget(carrier(i,j),1)
                 continue
@@ -64,7 +64,8 @@ else
 end
 
 
-
+% 以下为尝试嵌入多通道颜色的图片，保留其颜色信息，每个通道的一个像素八位颜色值分别
+% 由图像载体最低平面的八个像素点表示，但未能实现
 % LSB_result = carrier;
 % for i=1:rows1
 %     for j=1:cols1

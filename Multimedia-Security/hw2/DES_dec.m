@@ -1,4 +1,5 @@
 function deciphertext = DES_dec(src,key)
+% DES解密
 [w,h] = size(src);
 % w1 = fix(w/(2*sqrt(2)));
 % h1 = fix(h/(2*sqrt(2)));
@@ -11,6 +12,8 @@ for i=1:ceil(w*h/64)
    deciphertext(64*(i-1)+1:64*i) = DES(src((i-1)*64+1:i*64),'DEC',key((i-1)*64+1:i*64));
 end
 deciphertext = reshape(deciphertext,w,[]);
+
+% 以下为尝试恢复DES加密后的图片信息
 % deciphertext = reshape(deciphertext,8,[]);
 % 
 % n=8;
